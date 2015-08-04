@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>UPT_AUTO</artifactId>
+        <groupId>com.jd.test</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Test-Suit-IGT</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Test-Suit-IGT</name>
+
+    <properties>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!--scope test-->
+        <!-- 单元测试需要 只在test -->
+        <junit.version>4.6</junit.version>
+
+        <!-- log4j -->
+        <log4j.version>1.2.16</log4j.version>
+
+        <!--surefire-report version, used for auto test report generation-->
+        <surefire-report.version>2.18.1</surefire-report.version>
+
+        <!--maven-site-plugin version, used for auto test report generation-->
+        <site.version>2.1</site.version>
+
+        <!--surefire version, used for unit test trigger-->
+        <surefire.version>2.18.1</surefire.version>
+
+        <!--plugin -->
+        <!-- resources -->
+        <resourcesPlugin.version>2.4.3</resourcesPlugin.version>
+
+        <!--surefire-report folder path -->
+        <surefire-report.path>D:\Jenkins\jobs\TestSuit-IGT\site</surefire-report.path>
+
+        <maven.build.timestamp.format>yyMMdd-HHmm</maven.build.timestamp.format>
+
+        <!--surefire report file name-->
+        <surefire-report.name>TestReport-IGT-${maven.build.timestamp}</surefire-report.name>
+
+    </properties>
+
+    <dependencies>
+
+        <!-- log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.23</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jd.leo</groupId>
+            <artifactId>leo-domain</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${resourcesPlugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!--surefire plugin for unit test-->
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${surefire.version}</version>
+                <executions>
+                    <execution>
+                        <id>run-WebDriverDemo-test</id>
+                        <!--<phase>integration-test</phase>-->
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <includes>
+                                <include>**/TestCase_AdminIndexController.java</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--used for Junit test report generation-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${surefire-report.version}</version>
+                <configuration>
+                    <!--<reportSets>-->
+                    <!--<reportSet>-->
+                    <!--<reports>-->
+                    <!--<report>report-only</report>-->
+                    <!--</reports>-->
+                    <!--</reportSet>-->
+                    <!--</reportSets>-->
+                    <!--<reportsDirectory>${surefire-report.path}</reportsDirectory>-->
+                    <outputDirectory>${surefire-report.path}</outputDirectory>
+                    <outputName>${surefire-report.name}</outputName>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+
+</project>

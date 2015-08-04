@@ -1,0 +1,12 @@
+*.DS_Store
+*.iml
+.idea
+.project
+.classpath
+.svn
+rebel.xml
+rebel-remote.xml
+target
+
+*/node_modules
+**.sass-cache**
