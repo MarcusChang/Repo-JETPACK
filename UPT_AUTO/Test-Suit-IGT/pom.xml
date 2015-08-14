@@ -13,9 +13,12 @@
     <version>1.0-SNAPSHOT</version>
     <name>Test-Suit-IGT</name>
 
+
+
     <properties>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
 
         <!--scope test-->
         <!-- 单元测试需要 只在test -->
@@ -64,7 +67,7 @@
 
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpmime</artifactId>
+            <artifactId>httpclient</artifactId>
             <version>4.5</version>
         </dependency>
 
@@ -87,8 +90,14 @@
         </dependency>
 
         <dependency>
-            <groupId>com.jd.leo</groupId>
+            <groupId>com.jd.test</groupId>
             <artifactId>leo-domain</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.8.3</version>
         </dependency>
 
     </dependencies>
