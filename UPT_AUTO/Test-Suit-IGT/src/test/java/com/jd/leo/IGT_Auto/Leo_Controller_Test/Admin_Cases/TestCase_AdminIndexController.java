@@ -1,5 +1,6 @@
 package com.jd.leo.IGT_Auto.Leo_Controller_Test.Admin_Cases;
 
+import com.jd.leo.IGT_Auto.Leo_Controller_Test.ExpectedResults.ExpectedReturns_AdminIndexController;
 import com.jd.leo.IGT_Auto.Leo_Controller_Test.TestParams.ControllerParams;
 
 import org.apache.commons.compress.utils.IOUtils;
@@ -11,7 +12,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.*;
 import org.apache.http.impl.client.DefaultHttpClient;
-import com.alibaba.fastjson.JSONObject;
+//import com.alibaba.fastjson.JSONObject;
 
 
 
@@ -32,6 +33,11 @@ public class TestCase_AdminIndexController {
             InputStream instream = entity.getContent();
             String responseBody = new String(IOUtils.toByteArray(instream), "utf-8");
             System.out.println(responseBody);
+
+            //Call the expected output methods to compare the actual response body with the expected response body checkpoints
+            ExpectedReturns_AdminIndexController expRetruns = new ExpectedReturns_AdminIndexController();
+            expRetruns.expectedReturns(responseBody);
+
             httpGet.abort();
         }
 
