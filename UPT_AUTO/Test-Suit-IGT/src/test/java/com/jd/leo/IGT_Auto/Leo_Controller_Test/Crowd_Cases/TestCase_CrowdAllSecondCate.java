@@ -2,8 +2,11 @@ package com.jd.leo.IGT_Auto.Leo_Controller_Test.Crowd_Cases;
 
 import Utils.TestUtilFunctions;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.jd.leo.IGT_Auto.Leo_Controller_Test.ExpectedResults.ExpectedReturns_CrowdAllSecondCate;
 import com.jd.leo.IGT_Auto.Leo_Controller_Test.TestParams.ControllerParams;
-import com.jd.leo.bigdata.domain.CategoryResult;
+//import com.jd.leo.bigdata.domain.CategoryResult;
+//import com.jd.leo.domain.Result;
 
 import org.apache.commons.compress.utils.IOUtils;
 import org.apache.http.HttpEntity;
@@ -21,7 +24,6 @@ import org.junit.Test;
 import java.io.*;
 import java.util.*;
 
-import com.jd.leo.domain.Result;
 
 
 /**
@@ -64,20 +66,30 @@ public class TestCase_CrowdAllSecondCate {
             String responseBody = new String(IOUtils.toByteArray(instream), "utf-8");
             System.out.println(responseBody);
 
+            JSONObject responseBodyJson = JSON.parseObject(responseBody);
+            String responseBodyJsonStr = responseBodyJson.toString();
+
+            //Call the expected output methods to compare the actual response body with the expected response body checkpoints
+            ExpectedReturns_CrowdAllSecondCate expRetruns = new ExpectedReturns_CrowdAllSecondCate();
+            expRetruns.expectedReturns(responseBodyJsonStr);
+
+
+
+/*            //if need to parse the returned response JSON to leo.Result type, can use below codes
             Result result = JSON.parseObject(responseBody, Result.class);
             System.out.println(result.getResult());
 
             System.out.println("-----------------------以下为解析后的JSON----------------------");
-            List<CategoryResult> secondCateList = JSON.parseArray(String.valueOf(result.getResult().get("secondCateList")), CategoryResult.class);
-            for (CategoryResult secondCate : secondCateList) {
-                System.out.println(secondCate.getCateId() + "  " + secondCate.getCateName());
+            List<CategoryResult> firstCateList = JSON.parseArray(String.valueOf(result.getResult().get("secondCateList")), CategoryResult.class);
+            for (CategoryResult firstCate : firstCateList) {
+                System.out.println(firstCate.getCateId() + "  " + firstCate.getCateName());
 
-                Set<CategoryResult> thirdcateList = secondCate.getChildren();
-                for (CategoryResult thirdCate : thirdcateList) {
-                    System.out.println(thirdCate.getCateId() + "  " + thirdCate.getCateName());
+                Set<CategoryResult> secondCateList = firstCate.getChildren();
+                for (CategoryResult secondCate : secondCateList) {
+                    System.out.println(secondCate.getCateId() + "  " + secondCate.getCateName());
                 }
 
-            }
+            }*/
 
         }
 

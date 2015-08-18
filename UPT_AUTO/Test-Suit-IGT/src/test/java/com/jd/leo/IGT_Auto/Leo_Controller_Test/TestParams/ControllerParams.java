@@ -14,8 +14,10 @@ public class ControllerParams {
 
     //the url for the user login the mkt.jd.com
     public static final String URL_MktJdComLogin = "http://erp1.jd.com/newHrm/Verify.aspx?ReturnUrl=http%3a%2f%2fmkt.jd.com%2findex";
-    
+
+    //the url for the HttpGet the cookies after the user login the erp
     public static final String URL_MktJdComIndex = "http://mkt.jd.com/index";
+
 
     //the userName for mkt.jd.com login
     public static final String userName_MktJdComLogin = "changxuliang";
@@ -25,6 +27,7 @@ public class ControllerParams {
 
     //the regular expression for obtain the returned body's jump url
     public static final String regFirstLogin = "href=\\\"(.*)\\\"";
+
 
 
 
