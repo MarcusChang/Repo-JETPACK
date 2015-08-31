@@ -1,8 +1,7 @@
 UPT_AUTO
 ========
 UPT_AUTO 源码，用于覆盖 API/服务/接口/业务层及服务器端性能工具的整合测试框架。
-纯JAVA技术栈（服务器端性能测试使用的脚本为scala，但依然使用Jenkins集成），JUNIT / Log4j / WebDriver / Surefire / Maven / HttpClient/
-org.apache.commons / org.apache.httpcomponents / com.alibaba.fastjson / commons-httpclient / org.jsoup / Gatling。
+纯JAVA技术栈（服务器端性能测试使用的脚本为scala，但依然使用Jenkins集成），JUNIT / Log4j / WebDriver / Surefire / Maven / HttpClient/ org.apache.commons / org.apache.httpcomponents / com.alibaba.fastjson / commons-httpclient / org.jsoup / Gatling。
 ========
 
 Test-Suit-BPT:
