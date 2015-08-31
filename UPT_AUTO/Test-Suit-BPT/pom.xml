@@ -137,7 +137,7 @@
                 </configuration>
             </plugin>
 
-            <!--surefire plugin for unit test-->
+            <!--surefire plugin for BPT test-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -145,7 +145,7 @@
                 <version>${surefire.version}</version>
                 <executions>
                     <execution>
-                        <id>run-WebDriverDemo-test</id>
+                        <id>run-BPT-test</id>
                         <!--<phase>integration-test</phase>-->
                         <goals>
                             <goal>test</goal>

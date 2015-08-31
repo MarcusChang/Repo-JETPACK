@@ -17,6 +17,7 @@
         <module>leo-domain</module>
         <module>Test-Suit-BPT</module>
         <module>Test-Suit-IGT</module>
+        <module>Test-Suit-SPT</module>
     </modules>
 
     <properties>

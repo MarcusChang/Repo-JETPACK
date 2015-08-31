@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>UPT_AUTO</artifactId>
+        <groupId>com.jd.test</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Test-Suit-SPT</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Test-Suit-SPT</name>
+
+
+
+    <properties>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
+        <!-- scope test -->
+        <!-- 单元测试需要 只在test-->
+        <junit.version>4.6</junit.version>
+
+        <!-- log4j -->
+        <log4j.version>1.2.16</log4j.version>
+
+        <!-- surefire-report version, used for auto test report generation -->
+        <surefire-report.version>2.18.1</surefire-report.version>
+
+        <!-- maven-site-plugin version, used for auto test report generation -->
+        <site.version>2.1</site.version>
+
+        <!-- surefire version, used for unit test trigger -->
+        <surefire.version>2.18.1</surefire.version>
+
+        <!-- plugin -->
+        <!-- resources -->
+        <resourcesPlugin.version>2.4.3</resourcesPlugin.version>
+
+        <!-- surefire-report folder path -->
+        <surefire-report.path>D:\Jenkins\jobs\TestSuit-SPT\site</surefire-report.path>
+
+        <maven.build.timestamp.format>yyMMdd-HHmm</maven.build.timestamp.format>
+
+        <!-- surefire report file name -->
+        <surefire-report.name>TestReport-SPT-${maven.build.timestamp}</surefire-report.name>
+
+        <!-- Gatling related maven version -->
+        <Gatling.verion>2.1.7</Gatling.verion>
+
+        <!-- Scala related maven version -->
+        <Scala.version>2.11.7</Scala.version>
+
+
+    </properties>
+
+
+
+    <dependencies>
+
+        <!-- log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-core</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-http</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-app</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-test-framework</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-recorder</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-compiler</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-charts</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-jdbc</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-jms</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-redis</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-metrics</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling</groupId>
+            <artifactId>gatling-maven-plugin</artifactId>
+            <version>${Gatling.verion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>${Gatling.verion}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>io.gatling</groupId>-->
+            <!--<artifactId>gatling-parent</artifactId>-->
+            <!--<version>${Gatling.verion}</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>io.gatling</groupId>-->
+            <!--<artifactId>gatling-maven-parent</artifactId>-->
+            <!--<version>${Gatling.verion}</version>-->
+        <!--</dependency>-->
+
+
+        <!--<dependency>-->
+            <!--<groupId>io.gatling</groupId>-->
+            <!--<artifactId>gatling-bundle</artifactId>-->
+            <!--<version>${Gatling.verion}</version>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${Scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>${Scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-actors</artifactId>
+            <version>${Scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>${Scala.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.11</artifactId>
+            <version>2.2.5</version>
+        </dependency>
+
+
+    </dependencies>
+
+
+
+    <build>
+        <plugins>
+
+            <!-- The Gatling maven plugin -->
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>${Gatling.verion}</version>
+                <configuration>
+                    <configFolder>src\test\resources</configFolder>
+                    <dataFolder>src\test\resources\data</dataFolder>
+                    <!--<resultsFolder>target\gatling\results</resultsFolder>-->
+                    <resultsFolder>src\test\scala\results</resultsFolder>
+                    <bodiesFolder>src\test\resources\request-bodies</bodiesFolder>
+                    <simulationsFolder>src\test\scala</simulationsFolder>
+                    <includes>
+                        <include>com.jd.leo.SPT_Auto.Demo.spt_demo</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${resourcesPlugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <!--surefire plugin for unit test-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>${surefire.version}</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>run-SPT-test</id>-->
+                        <!--&lt;!&ndash;<phase>integration-test</phase>&ndash;&gt;-->
+                        <!--<goals>-->
+                            <!--<goal>test</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<includes>-->
+                                <!--<include>**/spt_demo.scala</include>-->
+                            <!--</includes>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+            <!--used for Junit test report generation-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-report-plugin</artifactId>-->
+                <!--<version>${surefire-report.version}</version>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;<reportSets>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<reportSet>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<reports>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<report>report-only</report>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</reports>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</reportSet>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</reportSets>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<reportsDirectory>${surefire-report.path}</reportsDirectory>&ndash;&gt;-->
+                    <!--<outputDirectory>${surefire-report.path}</outputDirectory>-->
+                    <!--<outputName>${surefire-report.name}</outputName>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+        </plugins>
+    </build>
+
+
+</project>
