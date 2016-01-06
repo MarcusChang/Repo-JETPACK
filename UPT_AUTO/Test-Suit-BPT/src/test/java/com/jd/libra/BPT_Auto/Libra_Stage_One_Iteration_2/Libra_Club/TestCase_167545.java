@@ -4,11 +4,13 @@ import java.io.IOException;
 
 import Utils.DriverUtilFunctions;
 import Utils.LogUtilFunctions;
+import Utils.RetryTest;
 import com.jd.libra.BPT_Auto.TestParams.ProjectParams;
 import Utils.TestUtilFunctions;
 import com.jd.libra.BPT_Auto.PageFactory.*;
 
 import junit.framework.Assert;
+import org.junit.Rule;
 import org.junit.Test;
 
 import org.openqa.selenium.WebDriver;
@@ -24,6 +26,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
  * It covers Chrome browser
  */
 public class TestCase_167545 {
+
+    @Rule
+    public RetryTest retry = new RetryTest(3);
+
     @Test
     /**
      *-> 话题外链校验测试_Chrome_Test() is used for test the homepage go top function
