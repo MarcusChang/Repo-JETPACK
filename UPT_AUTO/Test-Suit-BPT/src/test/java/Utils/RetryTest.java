@@ -11,8 +11,6 @@ public class RetryTest implements TestRule{
 
     private int retryCount;
 
-    private static int i = 0;
-
     public RetryTest(int retryCount) {
         this.retryCount = retryCount;
     }
